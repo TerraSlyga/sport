@@ -9,6 +9,7 @@ const VideoBackground = () => {
         muted
         playsInline
         className="absolute top-0 left-0 min-w-full min-h-full object-cover filter blur-xl scale-105"
+        aria-hidden="true"
       >
         <source
           src="https://assets.mixkit.co/videos/43483/43483-720.mp4"
