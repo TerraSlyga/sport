@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import VideoBackground from "../components/mainPage/VideoBackground";
+import VideoBackground from "../components/background/VideoBackground";
 import Header from "../components/mainPage/Header";
 import FrontCard from "../components/mainPage/FrontCard";
 import BackCard from "../components/mainPage/BackCard";

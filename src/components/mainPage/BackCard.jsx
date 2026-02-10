@@ -16,7 +16,7 @@ const BackCard = ({ isLogin, setIsLogin, onBack }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    username: "",
+    nickname: "",
     email: "",
     password: "",
     repeatPassword: "",
@@ -44,7 +44,7 @@ const BackCard = ({ isLogin, setIsLogin, onBack }) => {
           credentials: "include",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            username: formData.username,
+            nickname: formData.nickname,
             password: formData.password,
           }),
         });
@@ -70,7 +70,7 @@ const BackCard = ({ isLogin, setIsLogin, onBack }) => {
             username: formData.username,
             email: formData.email,
             password: formData.password,
-            nickname: formData.username,
+            nickname: formData.nickname,
             phone: "",
           }),
         });
@@ -118,11 +118,11 @@ const BackCard = ({ isLogin, setIsLogin, onBack }) => {
                 size={20}
               />
               <input
-                name="username"
-                value={formData.username}
+                name="nickname"
+                value={formData.nickname}
                 onChange={handleChange}
                 type="text"
-                placeholder="Username"
+                placeholder="Nickname"
                 required
                 className="w-full bg-black/20 border border-white/30 rounded-full py-4 pl-12 pr-6 text-white placeholder-white/50 focus:outline-none focus:border-white focus:bg-black/40 transition-all"
               />

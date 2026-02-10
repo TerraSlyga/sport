@@ -13,5 +13,9 @@ export default defineConfig({
         secure: false,
       },
     },
+    headers: {
+      "Content-Security-Policy": "frame-ancestors 'self'",
+      "X-Frame-Options": "SAMEORIGIN",
+    },
   },
 });

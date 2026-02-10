@@ -1,14 +1,24 @@
 import React from "react";
 import { Loader2 } from "lucide-react";
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
+
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import MainPage from "./pages/MainPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import TournamentPage from "./pages/TournamentPage.jsx";
+import CreateTournament from "./pages/CreateTournament.jsx";
+import { useTournaments } from "./hooks/useTournaments";
+
+const TournamentPageWithData = () => {
+  const { tournaments } = useTournaments();
+  return <TournamentPage tournaments={tournaments} />;
+};
 
 // Компонент для захисту приватних маршрутів
 const PrivateRoute = ({ children }) => {
@@ -66,8 +76,32 @@ const AppRoutes = () => {
           </PrivateRoute>
         }
       />
+      {/* Приватний маршрут: Сторінка турніра */}
+      <Route
+        path="/tournaments/:id"
+        element={
+          <PrivateRoute>
+            <TournamentPageWithData />
+          </PrivateRoute>
+        }
+      />
+      {/* Приватний маршрут: Create event (uses same layout) */}
+      <Route
+        path="/create-event"
+        element={
+          <PrivateRoute>
+            <CreateTournamentWithData />
+          </PrivateRoute>
+        }
+      />
+      ;
     </Routes>
   );
+};
+
+const CreateTournamentWithData = () => {
+  const { tournaments } = useTournaments();
+  return <CreateTournament tournaments={tournaments} />;
 };
 
 const App = () => {
